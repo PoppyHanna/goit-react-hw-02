@@ -11,10 +11,10 @@ export default function App() {
     bad: 0
   });
 
-  const handleFeedback = type => {
+const updateFeedback = feedbackType => {
     setFeedbackTypes(prevState => ({
       ...prevState,
-      [type]: prevState[type] + 1
+      [feedbackType]: prevState[feedbackType] + 1
     }));
   };
   return (
@@ -24,7 +24,7 @@ export default function App() {
         text={descriptions.text}
       />
 
-      <Options handleFeedback={handleFeedback}/>
+      <Options updateFeedback={updateFeedback}/>
       
       <Feedback feedbackTypes={feedbackTypes}/>
     </>

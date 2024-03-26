@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './App.css';
 import descriptions from './components/descriptions.json';
 import Description from './components/description/Description';
 import Feedback from './components/feedback/Feedback';

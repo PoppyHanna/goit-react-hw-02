@@ -13,9 +13,20 @@
   justify-content: center;
   margin: 15px 0;
   height: 70px;
+  align-items: center;
+  gap: 10px;
 }
 
 .text {
   font-size: 18px;
   color: #4700b3;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  color: #ff8cc6;
+  /* color: linear-gradient(to top right, #3366ff 0%, #ff99cc 100%);
+  fill-opacity: linear-gradient(120deg, #306ad5 30%, #ff69b4);
+  color: linear-gradient(to top right, #3366ff 0%, #ff99cc 100%); */
 }

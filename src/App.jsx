@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import descriptions from './components/descriptions.json';
 import Description from './components/description/Description';
 import Feedback from './components/feedback/Feedback';
@@ -11,7 +11,18 @@ export default function App() {
     good: 0,
     neutral: 0,
     bad: 0
-  });
+   });
+  
+    useEffect(() => {
+    const storedFeedback = JSON.parse(localStorage.getItem('feedback'));
+    if (storedFeedback) {
+      setFeedbackTypes(storedFeedback);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('feedback', JSON.stringify(feedbackTypes));
+  }, [feedbackTypes]);
 
 const updateFeedback = feedbackType => {
     setFeedbackTypes(prevState => ({

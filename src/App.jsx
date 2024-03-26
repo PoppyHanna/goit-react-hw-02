@@ -30,6 +30,8 @@ const updateFeedback = feedbackType => {
   
   const totalFeedback = feedbackTypes.good + feedbackTypes.neutral + feedbackTypes.bad;
   
+  const positivePercentage = totalFeedback > 0 ? Math.round((feedbackTypes.good / totalFeedback) * 100) : 0;
+
   return (
     <>
       <Description
@@ -37,13 +39,19 @@ const updateFeedback = feedbackType => {
         text={descriptions.text}
         
       />
+
       <Options
         updateFeedback={updateFeedback}
         totalFeedback={totalFeedback}
-      resetFeedback={resetFeedback}
+        resetFeedback={resetFeedback}
       />
+
       {totalFeedback > 0 ? (
-        <Feedback feedbackTypes={feedbackTypes} />
+        <Feedback
+          feedbackTypes={feedbackTypes}
+          totalFeedback={totalFeedback}
+          positivePercentage={positivePercentage}
+         />
       ) : (
         <Notification message="No feedback collected yet." />
       )}

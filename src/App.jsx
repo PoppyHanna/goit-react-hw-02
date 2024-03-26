@@ -20,6 +20,14 @@ const updateFeedback = feedbackType => {
     }));
 };
   
+    const resetFeedback = () => {
+    setFeedbackTypes({
+      good: 0,
+      neutral: 0,
+      bad: 0
+    });
+  };
+  
   const totalFeedback = feedbackTypes.good + feedbackTypes.neutral + feedbackTypes.bad;
   
   return (
@@ -27,17 +35,18 @@ const updateFeedback = feedbackType => {
       <Description
         title={descriptions.title}
         text={descriptions.text}
+        
       />
-      <Options updateFeedback={updateFeedback} />
+      <Options
+        updateFeedback={updateFeedback}
+        totalFeedback={totalFeedback}
+      resetFeedback={resetFeedback}
+      />
       {totalFeedback > 0 ? (
         <Feedback feedbackTypes={feedbackTypes} />
       ) : (
         <Notification message="No feedback collected yet." />
       )}
-{/* 
-      <Options updateFeedback={updateFeedback}/>
-      
-      <Feedback feedbackTypes={feedbackTypes}/> */}
     </>
   );
 }

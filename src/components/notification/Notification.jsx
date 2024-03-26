@@ -1,7 +1,9 @@
+import styles from './Notification.module.css'
+
 const Notification = ({ message }) => {
   return (
-    <div>
-      <p>{message}</p>
+      <div className={styles.notification}>
+      <p className={styles.text}>{message}</p>
     </div>
   );
 };

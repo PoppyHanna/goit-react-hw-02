@@ -14,4 +14,4 @@ const Feedback = ({ feedbackTypes }) => {
   );
 };
 
-export default Feedback; // Ось як потрібно експортувати компонент
+export default Feedback; 
